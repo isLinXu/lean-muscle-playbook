@@ -1,0 +1,27 @@
+# 构建产物与临时文件（生成脚本的中间输出不入库）
+*.pdf
+*.xlsx
+*.html
+
+# 但 templates/ 下的交付产物需要保留（打卡表 xlsx / 打印版 PDF）
+!templates/*.xlsx
+!templates/*.pdf
+!guides/*.html
+
+# 编辑器与系统
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 本地草稿
+.dumate/
+.draft/
+*.tmp

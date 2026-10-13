@@ -1,0 +1,125 @@
+% !TEX program = xelatex
+\documentclass[11pt,a5paper,openany]{ctexbook}
+
+% ================= 页面与版式 =================
+\usepackage[top=2.8cm,bottom=3.0cm,left=2.6cm,right=2.6cm,headheight=1.2cm]{geometry}
+\usepackage{fontspec}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{setspace}
+\usepackage[hidelinks]{hyperref}
+
+% ================= 黑皮书色彩 =================
+\definecolor{bookblack}{HTML}{111111}
+\definecolor{goldline}{HTML}{BFA05A}
+\definecolor{graymuted}{HTML}{666666}
+\definecolor{lightline}{HTML}{CCCCCC}
+
+% ================= 中文字体 =================
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+\setmainfont{Noto Serif CJK SC}
+\setsansfont{Noto Sans CJK SC}
+
+% ================= 版式参数 =================
+\linespread{1.35}
+\setlength{\parindent}{2em}
+\setlist{topsep=0.4em,itemsep=0.25em,parsep=0pt,leftmargin=2em}
+
+% 兼容 pandoc 输出
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\newcommand{\real}[1]{#1}
+
+% ================= 章节标题：黑皮书风格 =================
+\titleformat{\chapter}[display]
+  {\normalfont\sffamily\bfseries}
+  {\filright\color{goldline}\fontsize{52}{52}\selectfont\thechapter}
+  {0.4em}
+  {\filright\fontsize{24}{30}\selectfont\color{bookblack}}
+\titlespacing*{\chapter}{0pt}{-60pt}{2.2em}
+
+\titleformat{\section}
+  {\normalfont\sffamily\bfseries\fontsize{15}{20}\selectfont\color{bookblack}}
+  {\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{2.0em}{0.6em}
+
+\titleformat{\subsubsection}
+  {\normalfont\sffamily\bfseries\fontsize{12}{16}\selectfont\color{goldline}}
+  {}{0em}{}
+\titlespacing*{\subsubsection}{0pt}{1.6em}{0.4em}
+
+% 章首不编号序号显示为第X章形式（titlesec 中已用数字章号）
+\renewcommand{\thechapter}{\arabic{chapter}}
+
+% ================= 页眉页脚 =================
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\small\sffamily\color{graymuted}孙宇晨访谈记录整理}
+\fancyhead[RO]{\small\sffamily\color{graymuted}\nouppercase{\leftmark}}
+\fancyfoot[C]{\small\sffamily\color{graymuted}\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\color{lightline}\hrule width\headwidth height 0.4pt}
+
+% 章首页：清爽无页眉，仅页脚
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\small\sffamily\color{graymuted}\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
+
+% ================= 正文表格 =================
+\setlength{\heavyrulewidth}{0.8pt}
+\setlength{\lightrulewidth}{0.4pt}
+
+% 长表格环境内文字稍小
+\AtBeginEnvironment{longtable}{\small}
+
+% ================= 文档 =================
+\begin{document}
+
+% ---------- 封面：纯黑 ----------
+\thispagestyle{empty}
+\pagecolor{bookblack}
+\color{white}
+
+\vspace*{5.2cm}
+\begin{center}
+  {\sffamily\fontsize{30}{40}\selectfont\bfseries 孙宇晨访谈记录整理}\\[0.9em]
+  {\sffamily\fontsize{17}{24}\selectfont\color{goldline}薄肌与AI认知}\\[2.8em]
+  {\color{goldline}\rule{3.2cm}{0.7pt}}\\[1.4em]
+  {\sffamily\fontsize{10}{14}\selectfont\color{graymuted}AI 听记转录 · 十四议题 · 三本理论 · 十二金句}
+\end{center}
+\vfill
+
+\clearpage
+\nopagecolor
+\color{black}
+
+% ---------- 版权说明页 ----------
+\thispagestyle{empty}
+\vspace*{8.5cm}
+{\small\color{graymuted}依据 2026 年 10 月 11 日播客访谈 AI 听记整理。\par}
+{\small\color{graymuted}访谈嘉宾：孙宇晨（波场创始人）；主持人：邵艾伦（Alan，薄肌理论创始人）。\par}
+{\small\color{graymuted}全文统一采用“薄肌”表述；“搏击”仅用于术语说明及电影专名《搏击俱乐部》。\par}
+\vspace{2.2em}
+{\small\color{graymuted}排版：XeLaTeX · Noto CJK\\[0.4em]}
+
+\clearpage
+
+% ---------- 目录 ----------
+\tableofcontents
+\clearpage
+
+% ---------- 正文 ----------
+\input{body.tex}
+
+\end{document}

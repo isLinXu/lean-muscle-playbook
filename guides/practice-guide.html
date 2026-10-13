@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>薄肌实操指南 — 8 周行动手册</title>
+<style>
+  :root{
+    --ink:#2b2b2b; --gray:#6b6b6b; --line:#e5e2da; --bg:#faf9f5; --card:#ffffff;
+    --gold:#b08d3e; --gold-light:#f3ebd9; --green:#3e7d5a; --red:#b0483e; --soft:#f6f2e9;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:"PingFang SC","Hiragino Sans GB","Noto Sans CJK SC","Microsoft YaHei",system-ui,sans-serif;
+    line-height:1.75;font-size:15px;}
+  .wrap{max-width:880px;margin:0 auto;padding:32px 20px 80px;}
+  header.hero{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:34px 36px;margin-bottom:24px;box-shadow:0 2px 10px rgba(0,0,0,.03);}
+  .kicker{color:var(--gold);font-weight:600;font-size:13px;letter-spacing:.12em;margin-bottom:8px;}
+  h1{margin:0 0 10px;font-size:30px;line-height:1.3;}
+  .sub{color:var(--gray);font-size:14px;margin-bottom:16px;}
+  .meta{display:flex;flex-wrap:wrap;gap:8px;font-size:12.5px;color:var(--gray);}
+  .tag{background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:2px 12px;}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:24px;}
+  nav.toc b{color:var(--gold);font-size:14px;}
+  nav.toc ol{margin:8px 0 0;padding-left:22px;columns:2;column-gap:28px;font-size:13.5px;}
+  nav.toc a{color:var(--ink);text-decoration:none;}
+  nav.toc a:hover{color:var(--gold);}
+  section{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:26px 30px;margin-bottom:22px;}
+  h2{margin:0 0 14px;font-size:20px;display:flex;align-items:center;gap:10px;}
+  h2 .no{background:var(--gold);color:#fff;border-radius:8px;width:30px;height:30px;flex:0 0 30px;
+    display:inline-flex;align-items:center;justify-content:center;font-size:15px;}
+  h3{font-size:16px;margin:22px 0 8px;color:#1f1f1f;}
+  h4{font-size:14.5px;margin:16px 0 6px;}
+  p{margin:8px 0;}
+  ul,ol{margin:6px 0 10px;padding-left:24px;}
+  li{margin:4px 0;}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:var(--soft);font-weight:600;}
+  tr:nth-child(even) td{background:#fcfbf8;}
+  .callout{border-left:4px solid var(--gold);background:var(--gold-light);padding:12px 16px;
+    border-radius:0 8px 8px 0;margin:14px 0;font-size:14px;}
+  .callout.green{border-color:var(--green);background:#edf4ee;}
+  .callout.red{border-color:var(--red);background:#f7eeec;}
+  .callout.gray{border-color:var(--gray);background:var(--soft);}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .mini{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+  .mini b{color:var(--gold);}
+  .check{display:flex;gap:8px;align-items:flex-start;margin:6px 0;}
+  .check::before{content:"□";color:var(--gold);font-weight:700;flex:0 0 auto;margin-top:1px;}
+  .src{font-size:12px;color:var(--gray);}
+  .src b{color:var(--gray);font-weight:600;}
+  .small{font-size:13px;color:var(--gray);}
+  footer{font-size:12.5px;color:var(--gray);text-align:center;margin-top:30px;}
+  @media(max-width:640px){
+    nav.toc ol{columns:1;}
+    .grid2{grid-template-columns:1fr;}
+    section{padding:20px 18px;}
+  }
+  @media print{
+    body{background:#fff;}
+    section,.wrap,nav.toc,header.hero{box-shadow:none;border-color:#ccc;}
+    .wrap{padding:0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">行动手册 · 8 周版</div>
+  <h1>薄肌实操指南</h1>
+  <div class="sub">把「瘦 ≠ 薄肌」落到动作、饮食与数据上 —— 依据《孙宇晨访谈记录》3.1 节《薄肌圣经》之「常见误读与边界」，结合公开权威健康资料整理</div>
+  <div class="meta">
+    <span class="tag">目标：健康前提下的低体脂 + 线条</span>
+    <span class="tag">节奏：每周约 3 次力量 + 2–3 次有氧</span>
+    <span class="tag">周期：首轮 8 周，第 4 周复盘</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <b>目录</b>
+  <ol>
+    <li><a href="#s1">起点自查：先确认「健康前提」</a></li>
+    <li><a href="#s2">第 1 周：理论建设与装备准备</a></li>
+    <li><a href="#s3">第 2–8 周：训练执行方案</a></li>
+    <li><a href="#s4">饮食实操：蛋白质与热量</a></li>
+    <li><a href="#s5">恢复与睡眠</a></li>
+    <li><a href="#s6">数据化监控（记录与 AI 复盘）</a></li>
+    <li><a href="#s7">8 周节奏与合理预期</a></li>
+    <li><a href="#s8">安全边界与停止标准</a></li>
+    <li><a href="#s9">来源与口径说明</a></li>
+  </ol>
+</nav>
+
+<section id="s1">
+  <h2><span class="no">1</span>起点自查：先确认「健康前提」</h2>
+  <p>书中明确：「薄肌」不等于「没肌肉」或「苗条」，其定义是<strong>低体脂、线条清晰、精瘦而有力量</strong>，追求的是「瘦体重/肌肉管理」而非单纯减重；而这一追求的前提是健康（<span class="src">body_src.md：663 行</span>）。开始前先完成三项基线自查：</p>
+
+  <div class="callout red"><b>红线先行（请务必先排除）：</b>有慢性病、正在用药、进食障碍史、孕期/哺乳期、或近期有不明原因体重骤变者，应先做体检或咨询医生，再按本手册执行；本手册不替代医疗与营养专业建议。</div>
+
+  <table>
+    <tr><th style="width:24%">自查项</th><th style="width:40%">怎么测</th><th>记录基线（首周填入）</th></tr>
+    <tr><td>体重 / BMI</td><td>早晨空腹上完厕所后称重；BMI=体重(kg)÷身高(m)²。成人参考：18.5–23.9 为正常区间。</td><td>____ kg / BMI ____</td></tr>
+    <tr><td>体脂率</td><td>家用体脂秤（BIA 法）或健身房设备，固定同一台设备测量（误差较大，仅看趋势）。</td><td>____ %</td></tr>
+    <tr><td>腰围</td><td>呼气末、绕肚脐水平量一圈。警戒线：男 ≥90cm、女 ≥85cm。</td><td>____ cm</td></tr>
+    <tr><td>身体感受</td><td>近期精力、睡眠、月经周期（女性）、是否有乏力/头晕/脱发等。</td><td>____</td></tr>
+  </table>
+
+  <h3>目标怎么定：对照健康区间，不追求「越瘦越好」</h3>
+  <p>书中的「低体脂约 12%–15%」属于<strong>自媒体解读口径</strong>（body_src.md：653、662 行），且正文已注明「薄肌本质是一种审美偏好而非健康标准」。公开健康资料给出的成人参考区间如下，用于校准你的安全范围：</p>
+  <table>
+    <tr><th>人群</th><th>常见健康区间</th><th>线条较明显 / 常锻炼者</th><th>过低风险提示</th></tr>
+    <tr><td>成年男性</td><td>约 10%–20%</td><td>约 10%–15%</td><td>低于约 6% 可能影响激素分泌与免疫功能</td></tr>
+    <tr><td>成年女性</td><td>约 18%–28%</td><td>约 18%–22%</td><td>低于约 17% 可能出现月经紊乱 / 闭经风险</td></tr>
+  </table>
+  <p class="src"><b>口径提示：</b>各资料区间略有差异，以上为多数官方健康科普的共识区间（薄荷健康官方科普、医疗机构科普等，见文末来源）。你的目标应是「落在健康区间内的低体脂 + 可见线条」，而非冲击极低数值。</p>
+
+  <div class="callout green"><b>一号自检（沿用书内练习）：</b>我的目标是「健康前提下的低体脂」，还是「越瘦越好」？如果是后者——先停下来咨询专业人士，而不是继续加码（body_src.md：670 行）。</div>
+</section>
+
+<section id="s2">
+  <h2><span class="no">2</span>第 1 周：理论建设与装备准备</h2>
+  <p>对应书中「三步启动法」第一步：把执行环境提前准备好，降低开练当天的决策成本（body_src.md：660 行）。</p>
+  <div class="grid2">
+    <div class="mini"><b>① 落一份了解</b><br>把《薄肌圣经》常见误读与边界、自检练习通读一遍（body_src.md 3.1 节），明确「瘦体重/肌肉管理」≠「节食减重」。</div>
+    <div class="mini"><b>② 准备工具</b><br>体重秤（或体脂秤）、软尺、记录本/手机表格；能拍照记录饮食更好。</div>
+    <div class="mini"><b>③ 场地与动作学习</b><br>确认训练场地（居家自重 / 健身房）。先学 5 个核心动作的标准姿势：深蹲、俯卧撑、臀桥、划船（弹力带/哑铃）、平板支撑——质量优先，宁可少做也要做对。</div>
+    <div class="mini"><b>④ 补剂决策（可选）</b><br>书中提到「购置蛋白粉与肌酸」属作者个人做法。蛋白粉只是蛋白质来源之一，可用鸡蛋/肉/奶/豆制品替代；肌酸属运动补剂，开始前建议咨询专业人士，不清楚就不加。</div>
+  </div>
+  <div class="callout gray"><b>关于「只喝水不吃盐」：</b>网络中流传的极端做法缺乏依据。正常成年人每日饮水参考值约男 1700ml、女 1500ml；盐按日常饮食正常摄入即可，不应极端戒盐（body_src.md：660 行）。</div>
+</section>
+
+<section id="s3">
+  <h2><span class="no">3</span>第 2–8 周：训练执行方案</h2>
+  <p>书中「每天约 30 分钟训练、八周见效」是自媒体解读口径。公开健康共识（北京大学第一医院、大连理工大学运动指导、多地卫健委科普）给出可落地的组合：<strong>每周 2–3 次力量（两次间隔 ≥48 小时）+ 每周 3–4 次有氧（或累计每周 150 分钟中等强度）</strong>。按「每天约 30 分钟」编排，可以做到力量日 30–45 分钟、有氧日 20–30 分钟。</p>
+
+  <h3>每周模板（示例）</h3>
+  <table>
+    <tr><th>星期</th><th>内容</th><th>参考时长</th></tr>
+    <tr><td>一</td><td>力量 A：下肢 + 核心（深蹲 / 臀桥 / 平板支撑）</td><td>30–40 分钟</td></tr>
+    <tr><td>二</td><td>有氧：快走 / 骑行 / 椭圆机，中等强度（能说话但不太能唱歌）</td><td>25–30 分钟</td></tr>
+    <tr><td>三</td><td>力量 B：上肢 + 核心（俯卧撑 / 划船 / 平板支撑）</td><td>30–40 分钟</td></tr>
+    <tr><td>四</td><td>休息或散步</td><td>—</td></tr>
+    <tr><td>五</td><td>力量 C：全身或补齐弱势部位</td><td>30–40 分钟</td></tr>
+    <tr><td>六</td><td>有氧：较长一次（可爬山 / 骑行）</td><td>30–45 分钟</td></tr>
+    <tr><td>日</td><td>完全休息</td><td>—</td></tr>
+  </table>
+
+  <h3>力量训练组次建议</h3>
+  <ul>
+    <li><strong>复合动作</strong>（深蹲、俯卧撑、划船等）：3–4 组 × 8–12 次，组间休息 60–90 秒——这是增肌/塑形的常见区间；</li>
+    <li><strong>辅助动作</strong>（平板支撑、侧平举等）：2–3 组 × 12–15 次；</li>
+    <li><strong>渐进超负荷</strong>：每周尝试「多完成 1–2 次」或「每组增一点负重」，这是身体产生线条的关键机制——记录组数×重量×次数，下周对比；</li>
+    <li><strong>自重入门</strong>：力量不足时，深蹲可先做椅子辅助深蹲、俯卧撑先做跪姿，标准姿势优先。</li>
+  </ul>
+
+  <h3>第 2–8 周每周具体动作清单</h3>
+  <p>下面把 8 周拆成 4 个阶段，每周精确到「星期 × 动作 × 组×次 × 间歇」。力量日 A/B/C 每周轮换一次，两次力量间隔 ≥48 小时（周二有氧正好隔开周一/周三）；力量不足时一律先做「退阶版」，标准姿势优先。括号内为退阶/进阶选项。下表为通用基础动作编排建议（组次区间沿用上文公开来源，动作选择为通用做法，非书中原文）。</p>
+
+  <h4>阶段一：第 2 周 —— 搭底子（掌握动作、不追求数量）</h4>
+  <table>
+    <tr><th style="width:12%">星期</th><th>具体动作（组 × 次/时长）</th><th style="width:18%">时长/间歇</th></tr>
+    <tr><td>一</td><td><b>力量 A·下肢+核心</b>：徒手深蹲 3×8–10（退阶：椅子辅助深蹲）；臀桥 3×10–12；平板支撑 3×20–30 秒（退阶：跪姿平板）</td><td>30–35 分钟；组间 60–90 秒</td></tr>
+    <tr><td>二</td><td><b>有氧</b>：快走/骑行/椭圆机，中等强度（能说话但不太能唱歌）</td><td>20–25 分钟</td></tr>
+    <tr><td>三</td><td><b>力量 B·上肢+核心</b>：跪姿俯卧撑 3×6–8（退阶：上斜俯卧撑）；弹力带划船 3×10–12；平板支撑 3×20–30 秒</td><td>30–35 分钟；组间 60–90 秒</td></tr>
+    <tr><td>四</td><td>休息或散步</td><td>—</td></tr>
+    <tr><td>五</td><td><b>力量 C·全身补弱</b>：徒手深蹲 3×8–10；跪姿俯卧撑 3×6–8；臀桥 3×10–12；平板支撑 3×20–30 秒</td><td>30–35 分钟；组间 60–90 秒</td></tr>
+    <tr><td>六</td><td><b>有氧</b>：较长一次（快走/爬坡走/骑行）</td><td>25–30 分钟</td></tr>
+    <tr><td>日</td><td>完全休息</td><td>—</td></tr>
+  </table>
+
+  <h4>阶段二：第 3–4 周 —— 容量递增（每组加次数，开始加轻负重）</h4>
+  <table>
+    <tr><th style="width:12%">星期</th><th>具体动作（组 × 次/时长）</th><th style="width:18%">时长/间歇</th></tr>
+    <tr><td>一</td><td><b>力量 A·下肢+核心</b>：深蹲 3–4×10–12（进阶：双手各持 2.5–5kg 哑铃）；臀桥 3×12–15（进阶：负重/单腿）；平板支撑 3×30–45 秒</td><td>35–40 分钟；组间 60–90 秒</td></tr>
+    <tr><td>二</td><td><b>有氧</b>：快走/骑行/椭圆机，中等强度</td><td>25–30 分钟</td></tr>
+    <tr><td>三</td><td><b>力量 B·上肢+核心</b>：标准俯卧撑 3×8–10（退阶：跪姿；进阶：弹力带助力引体/凳上反撑）；哑铃或弹力带划船 3×10–12；侧平举 2–3×12–15；平板支撑 3×30–45 秒</td><td>35–40 分钟；组间 60–90 秒</td></tr>
+    <tr><td>四</td><td>休息或散步</td><td>—</td></tr>
+    <tr><td>五</td><td><b>力量 C·全身补弱</b>：深蹲 3×10–12；俯卧撑 3×8–10；臀桥 3×12–15；死虫/登山者 3×10–12（每侧）</td><td>35–40 分钟；组间 60–90 秒</td></tr>
+    <tr><td>六</td><td><b>有氧</b>：较长一次（按能力加 5 分钟）</td><td>30–35 分钟</td></tr>
+    <tr><td>日</td><td>完全休息</td><td>—</td></tr>
+  </table>
+
+  <h4>阶段三：第 5–6 周 —— 负重进阶（重量小幅上调，容量维持）</h4>
+  <table>
+    <tr><th style="width:12%">星期</th><th>具体动作（组 × 次/时长）</th><th style="width:18%">时长/间歇</th></tr>
+    <tr><td>一</td><td><b>力量 A·下肢+核心</b>：高脚杯深蹲（哑铃 5–10kg）4×8–12；罗马尼亚硬拉（哑铃/弹力带）3×8–10；臀桥 3×12–15（负重）；平板支撑 3×45–60 秒</td><td>40–45 分钟；组间 60–90 秒</td></tr>
+    <tr><td>二</td><td><b>有氧</b>：中等强度</td><td>30 分钟</td></tr>
+    <tr><td>三</td><td><b>力量 B·上肢+核心</b>：俯卧撑 3–4×10–12（进阶：下斜）；单臂哑铃划船/弹力带划船 3×10–12；哑铃推举 3×8–10；侧平举 3×12–15；平板支撑 3×45–60 秒</td><td>40–45 分钟；组间 60–90 秒</td></tr>
+    <tr><td>四</td><td>休息或散步</td><td>—</td></tr>
+    <tr><td>五</td><td><b>力量 C·全身补弱</b>：高脚杯深蹲 4×8–12；俯卧撑 3×10–12；罗马尼亚硬拉 3×8–10；死虫/登山者 3×12–16</td><td>40–45 分钟；组间 60–90 秒</td></tr>
+    <tr><td>六</td><td><b>有氧</b>：较长一次（可爬山/骑行）</td><td>35–45 分钟</td></tr>
+    <tr><td>日</td><td>完全休息</td><td>—</td></tr>
+  </table>
+
+  <h4>阶段四：第 7–8 周 —— 冲刺收官（维持容量，做终期复盘）</h4>
+  <table>
+    <tr><th style="width:12%">星期</th><th>具体动作（组 × 次/时长）</th><th style="width:18%">时长/间歇</th></tr>
+    <tr><td>一</td><td><b>力量 A·下肢+核心</b>：沿用阶段三重量，深蹲/高脚杯深蹲 4×8–12；臀桥 3×12–15；平板支撑 3×45–60 秒；最后一组做到力竭（安全前提下）</td><td>40–45 分钟；组间 75–90 秒</td></tr>
+    <tr><td>二</td><td><b>有氧</b>：中等强度</td><td>30 分钟</td></tr>
+    <tr><td>三</td><td><b>力量 B·上肢+核心</b>：俯卧撑 4×10–12；划船 3×10–12；推举 3×8–10；平板支撑 3×45–60 秒</td><td>40–45 分钟；组间 75–90 秒</td></tr>
+    <tr><td>四</td><td>休息或散步</td><td>—</td></tr>
+    <tr><td>五</td><td><b>力量 C·全身补弱</b>：高脚杯深蹲 4×8–12；俯卧撑 3×10–12；罗马尼亚硬拉 3×8–10；死虫 3×12–16</td><td>40–45 分钟；组间 75–90 秒</td></tr>
+    <tr><td>六</td><td><b>有氧</b>：较长一次（最后 1 次按计划完成即可）</td><td>35–45 分钟</td></tr>
+    <tr><td>日</td><td>完全休息 + 对照第 1 周基线做终期复盘（体重/腰围/照片/训练日志）</td><td>—</td></tr>
+  </table>
+
+  <div class="callout gray"><b>逐周如何加量（渐进超负荷）</b>：同一动作连续两周都能完成目标组次数、且最后 1–2 次仍有余力时，下一周就「加 1 组数或加 2–5kg 负重或加 10–15 秒平板时间」，三者每次只动一个变量，并在训练日志里记下来。宁可慢一点，也不要跳过退阶直接上重量。</div>
+
+  <h3>动作速查卡（退阶 / 标准 / 进阶）</h3>
+  <table>
+    <tr><th style="width:18%">动作</th><th>标准做法要点</th><th style="width:22%">退阶 → 进阶</th></tr>
+    <tr><td>深蹲</td><td>双脚与肩同宽，下蹲到膝盖约 90°、膝盖不内扣，臀部向后坐，起身时收紧臀部与核心</td><td>椅子辅助 → 徒手 → 高脚杯哑铃</td></tr>
+    <tr><td>臀桥</td><td>仰卧屈膝，脚跟踩地，臀部顶起至躯干成直线，顶端停顿 1 秒，缓慢下落</td><td>徒手 → 负重（哑铃放髋上）→ 单腿</td></tr>
+    <tr><td>俯卧撑</td><td>身体成直线、核心收紧，下落至胸部接近地面，推起时肘部不完全锁死</td><td>跪姿/上斜 → 标准 → 下斜/负重背心</td></tr>
+    <tr><td>划船</td><td>腰背挺直，肩胛后收带动手臂拉向肋骨方向，顶端停顿，慢放</td><td>弹力带 → 哑铃 → 单臂哑铃</td></tr>
+    <tr><td>推举</td><td>哑铃从肩部推至头顶正上方，核心收紧，避免过度挺腰</td><td>空手 → 轻哑铃（2–4kg）→ 加重</td></tr>
+    <tr><td>罗马尼亚硬拉</td><td>微屈膝，髋部后移、背部平直，哑铃沿大腿下放至小腿中上部，臀部发力站起</td><td>空杆/轻哑铃 → 加重 → 壶铃</td></tr>
+    <tr><td>平板支撑</td><td>肘撑、身体成直线，收腹提臀，不塌腰不撅臀，均匀呼吸</td><td>跪姿平板 → 标准 → 加时间/抬腿</td></tr>
+    <tr><td>侧平举</td><td>肩部发力向两侧抬起至与肩同高，肘微屈，慢放不耸肩</td><td>空手 → 1–2kg → 加重</td></tr>
+    <tr><td>死虫/登山者</td><td>核心收紧、腰背贴地（死虫）；登山者保持躯干稳定、交替提膝</td><td>死虫慢速 → 标准 → 加快</td></tr>
+  </table>
+  <p class="small">每个动作首次做时对着镜子或拍视频自查一次；居家无镜子可请家人帮忙看或拍 30 秒视频回看「腰背是否平直、膝盖是否内扣」。</p>
+
+  <div class="callout green"><b>减脂期关键：</b>力量训练的目的不是「练完出汗」，而是<strong>保住肌肉</strong>——肌肉量是减脂后不反弹、线条清晰的根本（书中「被动燃脂 / 红莲斗篷」类比即指这一点）。每周 2–3 次力量训练是保肌底线。</div>
+</section>
+
+<section id="s4">
+  <h2><span class="no">4</span>饮食实操：蛋白质与热量</h2>
+  <p>减脂期的核心逻辑是「制造温和热量缺口 + 保证蛋白质」。书中作者本人样本（体脂率 29% 起步、目标 140–150g 蛋白质、≤600kcal 热量缺口，body_src.md：660 行）个体差异大，不建议直接照搬；下面按公开健康共识给出通用区间。</p>
+
+  <h3>① 蛋白质（最重要的一项）</h3>
+  <p>减脂塑形人群建议每日<strong>1.2–2.0g / kg 体重</strong>（多数权威来源支持 1.2–1.6g 保肌下限，运动人群可到 1.6–2.0g）。示例：60kg 目标约 96–120g；书中作者目标 140–150g 大体对应 80–90kg 体重按 1.6–1.8g/kg 计算，供参考。</p>
+  <table>
+    <tr><th>常见食物（每 100g 可食部）</th><th>蛋白质约</th><th>备注</th></tr>
+    <tr><td>鸡胸肉（去皮、蒸/烤）</td><td>约 24–31g</td><td>低脂高蛋白，首选</td></tr>
+    <tr><td>瘦牛肉 / 鱼虾</td><td>约 20–26g</td><td>牛肉含铁锌；鱼虾低脂</td></tr>
+    <tr><td>鸡蛋（1 个约 55g）</td><td>约 6–7g/个</td><td>经济实惠</td></tr>
+    <tr><td>牛奶（250ml）</td><td>约 8g</td><td>建议低脂/脱脂可选</td></tr>
+    <tr><td>豆腐 / 豆制品</td><td>约 8–15g</td><td>植物蛋白来源</td></tr>
+  </table>
+  <p class="small">数值区间来自多家权威健康科普，具体以包装营养成分表为准。量大的思路：早餐 2 个鸡蛋 + 1 杯奶（约 20g），午餐/晚餐各 150g 左右肉或鱼（约 35–40g/餐），加餐豆制品或蛋白粉补足。</p>
+
+  <h3>② 热量缺口（温和为上）</h3>
+  <ul>
+    <li>每日缺口建议<strong>300–500 kcal</strong>，不提倡极端节食（多份卫健委/医院共识）；</li>
+    <li><strong>最低摄入保护</strong>：女性每日不低于约 1200 kcal、男性不低于约 1500 kcal（北京清华长庚医院科普口径）；</li>
+    <li>每周减重速度参考 0.5–1 kg，过快多流失肌肉、易反弹；</li>
+    <li>蛋白质应占总热量 15%–25%，优先鱼、禽、蛋、奶、豆制品，少油炸、少含糖饮料。</li>
+  </ul>
+
+  <h3>③ 每餐结构模板</h3>
+  <ul>
+    <li><strong>主食</strong>：优先全谷物/杂粮（糙米、燕麦、薯类），控制精制碳水比例；</li>
+    <li><strong>蛋白</strong>：每餐固定一份优质蛋白（肉/蛋/奶/豆）；</li>
+    <li><strong>蔬菜</strong>：每餐一大份，增加饱腹感与膳食纤维；</li>
+    <li><strong>水果/零食</strong>：用低糖水果（草莓、蓝莓等）替代高糖零食。</li>
+  </ul>
+</section>
+
+<section id="s5">
+  <h2><span class="no">5</span>恢复与睡眠</h2>
+  <ul>
+    <li><strong>睡眠 ≥7 小时</strong>：睡眠不足会升高压力激素、增加腹部脂肪堆积风险（卫健委科普口径）——也呼应书中的「大睡理论」；</li>
+    <li><strong>两次力量训练间隔 ≥48 小时</strong>：同一肌群留足恢复时间，肌肉在休息期生长；</li>
+    <li><strong>每周至少 1 天完全休息</strong>，有氧也可安排散步等低强度活动；</li>
+    <li>训练后 30 分钟内可补充一份蛋白质（如无糖酸奶/牛奶/鸡蛋），帮助修复（清华长庚科普口径）。</li>
+  </ul>
+</section>
+
+<section id="s6">
+  <h2><span class="no">6</span>数据化监控（记录与 AI 复盘）</h2>
+  <p>对应书中第二步「数据化启动」：记录让调整有依据，也让 AI 能帮你做每日/每周复盘（body_src.md：660 行）。</p>
+
+  <h3>① 称重与体脂：固定条件、看趋势</h3>
+  <ul>
+    <li><strong>固定时间</strong>：每周一次，早晨起床上完厕所、空腹、光脚、同一台秤、同一位置（坚硬地面）；</li>
+    <li><strong>忽略单日波动</strong>：家用体脂秤误差约 ±5%–10%（BIA 法受水分影响大），连成线看 1 个月到 3 个月趋势，不因单日浮动焦虑；</li>
+    <li>配合<strong>腰围/照片</strong>每周记录一次，比数字更直观。</li>
+  </ul>
+
+  <h3>② 训练日志</h3>
+  <ul>
+    <li>记录每项动作的<strong>组数 × 重量 × 次数</strong>，用于渐进超负荷对比；</li>
+    <li>建议每周拍一张正面/侧面照片，第 4、8 周对比。</li>
+  </ul>
+
+  <h3>③ AI 每周复盘（示例模板）</h3>
+  <div class="callout gray">把以下信息交给 AI：<br>
+  「本周体重 ____ kg、腰围 ____ cm、体脂约 ____%；力量训练 3 次（深蹲 3×10×40kg / 俯卧撑 3×12 / ……），有氧 2 次共 60 分钟；日均蛋白质约 ____ g、睡眠约 ____ h。请帮我评估：① 缺口是否温和；② 力量是否持续超负荷；③ 下一周调整 1–2 个变量。」<br>
+  <span class="small">注：AI 只做记录与分析，动作是否到位由真人教练/视频自查确认（书中「人机协同」原则）。</span></div>
+</section>
+
+<section id="s7">
+  <h2><span class="no">7</span>8 周节奏与合理预期</h2>
+  <p>「八周见效」是自媒体解读口径，但方向上与运动科学一致：新手在前 4–6 周即可开始看到体重/围度/体感变化（多项研究综述口径：新手第一年每月约可增 0.7–0.9kg 瘦体重，且新手期增肌速度最快）。把 8 周拆成 4 个阶段，避免中途放弃：</p>
+  <table>
+    <tr><th>阶段</th><th>重点</th><th>预期信号</th></tr>
+    <tr><td>第 1–2 周</td><td>养成习惯、学习动作、调整饮食记录</td><td>体重可能先快后稳（多为水分/糖原变化）；动作从生疏到熟练</td></tr>
+    <tr><td>第 3–4 周</td><td><strong>阶段复盘</strong>：回顾训练日志与饮食，修正 1–2 个变量</td><td>腰围/照片可能开始有可见变化；力量开始渐进上升</td></tr>
+    <tr><td>第 5–6 周</td><td>维持渐进超负荷；若减重停滞，先检查记录完整性，再微调缺口（不要砍到极端低热）</td><td>线条更明显；速度较前放缓属正常</td></tr>
+    <tr><td>第 7–8 周</td><td>终期复盘：对照第 1 周基线，决定下一轮是否继续/维持</td><td>体重、围度、照片三维对比</td></tr>
+  </table>
+  <div class="callout red"><b>平台期处理原则：</b>出现平台期先核对「记录是否真实完整」（零食/饮料/周末常被漏记），再考虑微调——不要用「更极端节食」来应对，那是反弹高危因素（多份权威共识口径）。</div>
+</section>
+
+<section id="s8">
+  <h2><span class="no">8</span>安全边界与停止标准</h2>
+  <p>出现以下任一情况，应<strong>停止加码、恢复饮食并咨询专业人士</strong>：</p>
+  <ul>
+    <li>明显乏力、头晕、心悸，或日常精力持续下降；</li>
+    <li>女性月经推迟/量明显减少/闭经；男性出现性欲明显下降——这是体脂与热量过低的典型警报；</li>
+    <li>脱发、皮肤干燥、免疫力下降（易感冒、伤口难愈合）；</li>
+    <li>对进食出现明显焦虑或失控感，或开始报复性进食；</li>
+    <li>体脂已低于健康区间下限（男性约 6%、女性约 17% 参考线）仍在继续压脂。</li>
+  </ul>
+  <div class="callout green"><b>收尾自检（对照书中练习）：</b>我的目标是「健康前提下的低体脂与线条」，还是「越瘦越好」？判断标准是后者时——停下来，先回到中间那两栏（健康区间 + 温和缺口）。单纯节食造成的「瘦」缺乏力量储备，与薄肌是两回事。</div>
+</section>
+
+<section id="s9">
+  <h2><span class="no">9</span>来源与口径说明</h2>
+  <p class="small" style="margin-top:0;">本手册区分两类来源：<b>书中原文</b>（供对齐理论口径）与<b>公开健康资料</b>（供落地参考）。书中「12%–15% 低体脂」「每天约 30 分钟」「八周见效」等为自媒体解读口径而非官方数值；所有健康建议优先采用公开权威资料。主要来源：</p>
+  <ul class="small">
+    <li><b>书中内容</b>：《孙宇晨访谈记录》3.1 节《薄肌圣经》——定义、常见误读与边界、三步启动法、健康边界自检（body_src.md 649–670 行）；</li>
+    <li><b>体脂健康区间</b>：薄荷健康等官方健康科普（成年男性约 10%–20%、女性约 18%–28%，过低影响激素与免疫）；</li>
+    <li><b>训练组合与组次</b>：北京大学第一医院密云医院减重处方（每周 2–3 次力量 + 3–4 次有氧、组次分档）、大连理工大学运动指导（复合动作 6–12 次/组）、世界卫生组织身体活动指南（每周 ≥150 分钟中等强度有氧）；</li>
+    <li><b>蛋白质与热量</b>：上海市卫健委（1.2–1.5g/kg、缺口 ≤500kcal）、湖北省第三人民医院（1.6–2g/kg、缺口 300–500kcal，每周 0.5–1kg）、天津市场监管科普（缺口 300–500kcal、不低于 800kcal 底线、蛋白占 15%–25%）、北京清华长庚医院（女 ≥1200、男 ≥1500kcal、睡眠 7 小时）；</li>
+    <li><b>极端节食危害</b>：梅奥诊所科普转载与多家医疗机构（基础代谢下降 10%–20%、反弹率高等）；</li>
+    <li><b>增肌速度预期</b>：多项运动科学综述（新手第一年每月约 0.7–0.9kg 瘦体重，4–6 周开始可见变化）；</li>
+    <li><b>体脂秤使用</b>：家用体脂秤 BIA 法误差约 ±5%–10%，固定时间/条件、看趋势。</li>
+  </ul>
+  <p class="small">以上公开资料均于 2026-10-12 检索核验；个体差异较大，重要决策请以本人体检结果与专业建议为准。</p>
+</section>
+
+<footer>薄肌实操指南 · 依据书内「常见误读与边界」扩展为可执行动作 —— 仅供健康管理参考，不替代医疗建议</footer>
+
+</div>
+</body>
+</html>
