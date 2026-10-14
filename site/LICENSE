@@ -1,0 +1,41 @@
+lean-muscle-playbook 内容许可声明
+==================================
+
+本仓库内容基于公开访谈整理，供学习参考，不构成医学、营养学或运动处方建议。
+
+- 文档与内容（README、docs/、guides/、assets/ 中的文字与图表）：
+  Creative Commons Attribution 4.0 International (CC BY 4.0)
+  你可以自由分享、改编，但须标注原始素材来源与整理者边界。
+  许可全文：https://creativecommons.org/licenses/by/4.0/legalcode.zh-Hans
+
+- 脚本与模板（scripts/、templates/）：
+  MIT License（见下方附录），可自由使用、修改与再分发。
+
+- 注意事项：
+  1) 使用前请阅读 README「口径纪律」一节，区分书中口径、公开权威资料与整理者整合。
+  2) 训练有风险，体脂已低于健康下限、有慢性病或孕期者应先咨询专业人士。
+  3) 仓库中提及的「搏击」仅用于术语说明及电影专名《搏击俱乐部》。
+
+附录：MIT License
+
+MIT License
+
+Copyright (c) 2026 lean-muscle-playbook contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
