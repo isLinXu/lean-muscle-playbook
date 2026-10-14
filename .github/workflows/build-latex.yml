@@ -1,0 +1,75 @@
+# 自动编译黑皮书 LaTeX 工程：源码变更或手动触发时，在干净环境编译 main.pdf，
+# 校验成品后上传 artifact，并在内容变化时把 main.pdf 提交回 main 分支，
+# 保证在线阅读站「下载全书 PDF」入口始终指向最新成品。
+name: Build LaTeX Book PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/latex-book/*.tex'
+      - 'scripts/latex-book/*.md'
+      - 'scripts/latex-book/*.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: latex-book-build
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live, CJK fonts and pdfinfo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex \
+            texlive-lang-chinese \
+            fonts-noto-cjk \
+            poppler-utils
+
+      - name: Compile LaTeX book (3 passes)
+        working-directory: scripts/latex-book
+        run: |
+          set -e
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
+          xelatex -interaction=nonstopmode -halt-on-error main.tex
+
+      - name: Validate compiled PDF
+        run: |
+          set -e
+          test -s scripts/latex-book/main.pdf
+          pages="$(pdfinfo scripts/latex-book/main.pdf | awk '/^Pages:/{print $2}')"
+          echo "compiled pages: $pages"
+          if [ -z "$pages" ] || [ "$pages" -lt 100 ]; then
+            echo "::error::Compiled PDF page count looks abnormal: $pages"
+            exit 1
+          fi
+
+      - name: Upload PDF as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lean-muscle-playbook-pdf
+          path: scripts/latex-book/main.pdf
+          if-no-files-found: error
+
+      - name: Commit compiled PDF back to main
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add scripts/latex-book/main.pdf
+          if git diff --cached --quiet; then
+            echo "PDF unchanged, skip commit"
+          else
+            git commit -m "build(latex): auto-compile main.pdf from sources"
+            git push origin HEAD:main
+          fi

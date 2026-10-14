@@ -34,6 +34,17 @@ xelatex -interaction=nonstopmode main.tex
 
 生成 `main.pdf`（138 页）。
 
+## 自动编译（GitHub Actions）
+
+仓库 `.github/workflows/build-latex.yml` 会在以下时机自动重新编译本工程：
+
+- `scripts/latex-book/` 下源文件（`.tex` / `.md` / `.py`）推送到 `main` 时；
+- 手动触发（Actions → Build LaTeX Book PDF → Run workflow）。
+
+工作流在 `ubuntu-latest` 上安装 `texlive-xetex`、`texlive-lang-chinese`、`fonts-noto-cjk`，
+三遍 `xelatex` 编译 `main.pdf`，校验页数不少于 100 页，上传构建产物 artifact，
+并在 PDF 内容变化时自动提交回 `main` 分支，在线阅读站「下载全书 PDF」随之保持最新。
+
 ## 黑皮书风格要点
 
 - **封面**：纯黑底、居中白色书名、金色副标题与分隔线、底部灰色说明。
