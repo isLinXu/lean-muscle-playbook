@@ -26,6 +26,7 @@
 | `assets/lean-vs-thin.png` | 「瘦≠薄肌」对比图 |
 | `templates/checkin.xlsx` | 8 周训练打卡表（含完成勾选下拉、动作速查卡） |
 | `templates/checkin-print.pdf` | 打卡表可打印 A4 版 |
+| `scripts/latex-book/main.pdf` | 黑皮书完整 LaTeX 编译成品（138 页，可直接下载阅读） |
 | `scripts/` | 版本化生成脚本（打卡表、对比图、打印版、黑皮书）与使用说明 |
 | `site/` | 在线阅读版页面（静态站点，由 `scripts/build_site.py` 生成，含导航 / 目录 / 资源引用） |
 

@@ -265,6 +265,7 @@ def index_hero() -> str:
   <span class="pill">书中口径：每天约 30 分钟 · 八周见效 · 三步启动法</span>
   <span class="pill">实操编排：9 个动作 · 4 个阶段 · 每周 3 次力量 + 2–3 次有氧</span>
   <span class="pill">口径纪律：书中口径 / 公开权威资料</span>
+  <div class="hero-dl"><a class="dl-btn" href="https://raw.githubusercontent.com/isLinXu/lean-muscle-playbook/main/scripts/latex-book/main.pdf" target="_blank" rel="noopener">下载全书 PDF（138 页）↗</a><span class="dl-note">黑皮书完整 LaTeX 编译成品，A5 版式</span></div>
 </div>
 <div class="cards">
   <div class="card"><span class="tag">主书</span><h3>黑皮书</h3><p>《孙宇晨访谈记录整理》六章全文：议题整理、三书深潜、金句摘录、8 周行动清单与复盘模板。</p><a class="go" href="docs/black-book.html">开始阅读 →</a></div>
