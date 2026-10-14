@@ -27,6 +27,18 @@
 | `templates/checkin.xlsx` | 8 周训练打卡表（含完成勾选下拉、动作速查卡） |
 | `templates/checkin-print.pdf` | 打卡表可打印 A4 版 |
 | `scripts/` | 版本化生成脚本（打卡表、对比图、打印版、黑皮书）与使用说明 |
+| `site/` | 在线阅读版页面（静态站点，由 `scripts/build_site.py` 生成，含导航 / 目录 / 资源引用） |
+
+## 在线阅读版（site/）
+
+`site/` 是把 README、黑皮书、术语表、实操指南与 8 周行动清单组织成多页静态站点的构建产物，
+带统一顶栏导航、页内目录、正文排版与可下载资源；`scripts/build_site.py` 可从仓库源重新生成。
+
+- 本地预览：直接打开 `site/index.html`（或用 `python3 -m http.server -d site`）。
+- 部署到 GitHub Pages：仓库 Settings → Pages → Source 选择 **GitHub Actions**；
+  `.github/workflows/pages.yml` 会把 `site/` 发布为
+  `https://<owner>.github.io/lean-muscle-playbook/`，内容更新后随 `site/**` 变更自动部署。
+- 修改内容请改各源文件（`docs/`、`guides/` 等）后重跑 `python3 scripts/build_site.py`，再提交 site/ 变更，避免直接改站点页造成多版本漂移。
 
 ## 维护与更新机制
 

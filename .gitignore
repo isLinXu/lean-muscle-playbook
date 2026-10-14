@@ -8,6 +8,18 @@
 !templates/*.pdf
 !guides/*.html
 
+# 在线阅读站点（site/）为需要提交的构建产物（GitHub Pages 部署源）
+!site/
+site/*
+!site/**/
+!site/**/*.html
+!site/**/*.css
+!site/**/*.png
+!site/**/*.docx
+!site/**/*.xlsx
+!site/**/*.pdf
+!site/**/.nojekyll
+
 # 编辑器与系统
 .DS_Store
 Thumbs.db
