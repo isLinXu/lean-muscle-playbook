@@ -30,6 +30,8 @@ body{margin:0;background:var(--bg);color:var(--ink);
 .topbar .gh-link{margin-left:auto;color:#cfc8ba;font-size:13px;text-decoration:none;
   white-space:nowrap;border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:4px 12px;}
 .topbar .gh-link:hover{color:#fff;border-color:var(--gold);}
+.topbar .dl-top{color:#fff;font-weight:700;border-color:var(--gold);background:var(--gold);}
+.topbar .dl-top:hover{color:#fff;border-color:#9e7e35;background:#9e7e35;}
 
 /* ---------- 布局 ---------- */
 main{max-width:900px;margin:0 auto;padding:36px 22px 72px;}
@@ -96,12 +98,6 @@ tr:nth-child(even) td{background:#fcfbf8;}
 .hero p{color:#e3dccb;max-width:660px;font-size:15px;}
 .hero .pill{display:inline-block;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);
   border-radius:999px;padding:4px 14px;font-size:12.5px;margin:6px 8px 0 0;color:#f0ead9;}
-.hero-dl{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px;}
-.dl-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#fff;
-  font-weight:700;font-size:14px;border-radius:10px;padding:11px 22px;
-  box-shadow:0 3px 12px rgba(0,0,0,.22);transition:transform .15s,background .15s;}
-.dl-btn:hover{background:#9e7e35;color:#fff;text-decoration:none;transform:translateY(-1px);}
-.dl-note{color:#c9c0ab;font-size:12.5px;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin:22px 0 8px;}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 22px;
   transition:transform .15s,box-shadow .15s;}
@@ -137,6 +133,7 @@ footer .warn{color:#8a6d3b;}
   .topbar-inner{gap:10px;padding:0 12px;}
   .brand{font-size:14.5px;}
   .topbar .gh-link{display:none;}
+  .topbar .dl-top{display:inline-block;flex:0 0 auto;}
 }
 
 /* ---------- 打印 ---------- */
