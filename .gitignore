@@ -8,6 +8,9 @@
 !templates/*.pdf
 !guides/*.html
 
+# LaTeX 黑皮书完整工程（scripts/latex-book/，含成品 PDF）
+!scripts/latex-book/*.pdf
+
 # 在线阅读站点（site/）为需要提交的构建产物（GitHub Pages 部署源）
 !site/
 site/*
