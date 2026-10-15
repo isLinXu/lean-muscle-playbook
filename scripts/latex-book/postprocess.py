@@ -72,6 +72,19 @@ tex = re.sub(
     tex,
 )
 
+# 6.3 金句速记表：三列自然宽度（lll）会溢出 101.5pt，改为定宽 p 列
+_fixed_quote_cols = (
+    "\\begin{longtable}[]{@{}\n"
+    "  >{\\raggedright\\arraybackslash}p{\\dimexpr0.40\\columnwidth-2\\tabcolsep\\relax}\n"
+    "  >{\\raggedright\\arraybackslash}p{\\dimexpr0.48\\columnwidth-2\\tabcolsep\\relax}\n"
+    "  >{\\raggedright\\arraybackslash}p{\\dimexpr0.12\\columnwidth-2\\tabcolsep\\relax}@{}}"
+)
+tex = re.sub(
+    r"\\begin\{longtable\}\[\][ ]?\{\@\{\}lll@\{\}\}",
+    lambda _m: _fixed_quote_cols,
+    tex,
+)
+
 # 7. 三书"核心观点"独立小标题：从 itemize 中移出
 def _lift_core_point(m):
     return "\n\\end{itemize}\n\n\\subsubsection*{核心观点}\n\n\\begin{itemize}\n\\item\n"
