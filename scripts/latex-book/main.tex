@@ -67,6 +67,16 @@
 % 章首不编号序号显示为第X章形式（titlesec 中已用数字章号）
 \renewcommand{\thechapter}{\arabic{chapter}}
 
+% 目录条目：页码进入三位数后默认 1.55em 预留不足，放宽页码与右缘
+% （book 类中 \@pnumwidth/\@tocrmarg 为宏而非长度，须用 renewcommand）
+\makeatletter
+\renewcommand{\@pnumwidth}{2.0em}
+\renewcommand{\@tocrmarg}{3.0em}
+\makeatother
+
+% 段落级微溢出兜底：仅在常规断行产生超宽时启用额外 stretch
+\emergencystretch=3em
+
 % ================= 页眉页脚 =================
 \pagestyle{fancy}
 \fancyhf{}
