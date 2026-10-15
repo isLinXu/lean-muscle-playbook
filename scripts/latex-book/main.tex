@@ -14,6 +14,7 @@
 \usepackage{longtable}
 \usepackage{array}
 \usepackage{setspace}
+\usepackage[skins,breakable]{tcolorbox}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   pdftitle={孙宇晨访谈记录整理——薄肌与AI认知},
@@ -28,6 +29,7 @@
 \definecolor{goldline}{HTML}{BFA05A}
 \definecolor{graymuted}{HTML}{666666}
 \definecolor{lightline}{HTML}{CCCCCC}
+\definecolor{lightgold}{HTML}{F5EFDD}
 
 % ================= 中文字体 =================
 \setCJKmainfont{Noto Serif CJK SC}
@@ -39,7 +41,7 @@
 % ================= 版式参数 =================
 \linespread{1.35}
 \setlength{\parindent}{2em}
-\setlist{topsep=0.4em,itemsep=0.25em,parsep=0pt,leftmargin=2em}
+\setlist{topsep=0.4em,itemsep=0.2em,parsep=0pt,leftmargin=2em}
 
 % 兼容 pandoc 输出
 \providecommand{\tightlist}{%
@@ -49,23 +51,29 @@
 % ================= 章节标题：黑皮书风格 =================
 \titleformat{\chapter}[display]
   {\normalfont\sffamily\bfseries}
-  {\filright\color{goldline}\fontsize{52}{52}\selectfont\thechapter}
+  {\centering\color{goldline}\fontsize{52}{52}\selectfont\thechapter}
   {0.4em}
-  {\filright\fontsize{24}{30}\selectfont\color{bookblack}}
-\titlespacing*{\chapter}{0pt}{-60pt}{2.2em}
+  {\centering\fontsize{24}{30}\selectfont\color{bookblack}}
+  [\vspace{0.15em}\centering{\color{goldline}\rule{5cm}{0.7pt}}]
+\titlespacing*{\chapter}{0pt}{-60pt}{1.7em}
 
 \titleformat{\section}
   {\normalfont\sffamily\bfseries\fontsize{15}{20}\selectfont\color{bookblack}}
-  {\thesection}{0.8em}{}
-\titlespacing*{\section}{0pt}{2.0em}{0.6em}
+  {\color{goldline}\rule{2.5pt}{1.1em}\hspace{0.5em}\thesection}{0.8em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.5em}
 
 \titleformat{\subsubsection}
   {\normalfont\sffamily\bfseries\fontsize{12}{16}\selectfont\color{goldline}}
   {}{0em}{}
-\titlespacing*{\subsubsection}{0pt}{1.6em}{0.4em}
+\titlespacing*{\subsubsection}{0pt}{1.15em}{0.25em}
 
 % 章首不编号序号显示为第X章形式（titlesec 中已用数字章号）
 \renewcommand{\thechapter}{\arabic{chapter}}
+
+% 引用块：浅金底 + 金色细框
+\renewenvironment{quote}
+  {\begin{tcolorbox}[enhanced, breakable, sharp corners, colback=lightgold, colframe=goldline, boxrule=0.5pt, left=8pt, right=8pt, top=1pt, bottom=1pt, arc=0pt, before skip=1pt plus 2pt, after skip=2pt plus 2pt]}
+  {\end{tcolorbox}}
 
 % 目录条目：页码进入三位数后默认 1.55em 预留不足，放宽页码与右缘
 % （book 类中 \@pnumwidth/\@tocrmarg 为宏而非长度，须用 renewcommand）
@@ -82,18 +90,19 @@
 \fancyhf{}
 \fancyhead[LE]{\small\sffamily\color{graymuted}孙宇晨访谈记录整理}
 \fancyhead[RO]{\small\sffamily\color{graymuted}\nouppercase{\leftmark}}
-\fancyfoot[C]{\small\sffamily\color{graymuted}\thepage}
+\fancyfoot[C]{\small\sffamily\color{graymuted}\rule{0.5em}{0.4pt}\hspace{0.6em}\thepage\hspace{0.6em}\rule{0.5em}{0.4pt}}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\headrule}{\color{lightline}\hrule width\headwidth height 0.4pt}
 
 % 章首页：清爽无页眉，仅页脚
 \fancypagestyle{plain}{%
   \fancyhf{}%
-  \fancyfoot[C]{\small\sffamily\color{graymuted}\thepage}%
+  \fancyfoot[C]{\small\sffamily\color{graymuted}\rule{0.5em}{0.4pt}\hspace{0.6em}\thepage\hspace{0.6em}\rule{0.5em}{0.4pt}}%
   \renewcommand{\headrulewidth}{0pt}%
 }
 
 % ================= 正文表格 =================
+\renewcommand{\arraystretch}{1.0}
 \setlength{\heavyrulewidth}{0.8pt}
 \setlength{\lightrulewidth}{0.4pt}
 
@@ -103,21 +112,41 @@
 % ================= 文档 =================
 \begin{document}
 
-% ---------- 封面：纯黑 ----------
+% ---------- 封面：纯黑 + 金色边框卡片 ----------
 \thispagestyle{empty}
 \pagecolor{bookblack}
 \color{white}
 
-\vspace*{5.2cm}
+\vspace*{1.2cm}
 \begin{center}
-  {\sffamily\fontsize{30}{40}\selectfont\bfseries 孙宇晨访谈记录整理}\\[0.9em]
-  {\sffamily\fontsize{17}{24}\selectfont\color{goldline}薄肌与AI认知}\\[2.8em]
-  {\color{goldline}\rule{3.2cm}{0.7pt}}\\[1.4em]
-  {\sffamily\fontsize{10}{14}\selectfont\color{graymuted}AI 听记转录 · 十四议题 · 三本理论 · 十二金句}\\[2.6em]
-  {\sffamily\fontsize{11}{16}\selectfont\color{white}整理：isLinXu}\\[0.5em]
+  {\sffamily\fontsize{9}{13}\selectfont\color{graymuted}SUN\,YUCHEN\,\textperiodcentered\,INTERVIEW NOTES}
+\end{center}
+\vspace{0.8cm}
+
+\begin{center}
+  \setlength{\fboxrule}{0.8pt}\setlength{\fboxsep}{0.9em}%
+  \fcolorbox{goldline}{bookblack}{%
+    \parbox{0.90\textwidth}{%
+      \centering
+      {\sffamily\fontsize{30}{40}\selectfont\bfseries 孙宇晨访谈记录整理}\\[0.5em]
+      {\sffamily\fontsize{17}{24}\selectfont\color{goldline}薄肌与AI认知}\\[1.7em]
+      {\color{goldline}\rule{3.2cm}{0.7pt}}\\[1.0em]
+      {\sffamily\fontsize{10}{14}\selectfont\color{graymuted}AI 听记转录 \textperiodcentered\ 十四议题 \textperiodcentered\ 三本理论 \textperiodcentered\ 十二金句}
+    }%
+  }
+\end{center}
+
+\vspace{1.1cm}
+\begin{center}
+  {\sffamily\fontsize{11}{16}\selectfont\color{white}整理：isLinXu}\\[0.4em]
   {\sffamily\fontsize{10}{15}\selectfont\color{goldline}在线阅读：\href{https://islinxu.github.io/lean-muscle-playbook}{https://islinxu.github.io/lean-muscle-playbook}}
 \end{center}
 \vfill
+
+\begin{center}
+  {\sffamily\fontsize{10}{14}\selectfont\color{graymuted}2026}
+\end{center}
+\vspace*{0.5cm}
 
 \clearpage
 \nopagecolor

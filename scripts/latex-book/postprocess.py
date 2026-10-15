@@ -85,6 +85,29 @@ tex = re.sub(
     tex,
 )
 
+# 6.4 第四章"例子/性质/阅读时的处理方式"表格：三列等宽导致第三列换行过多、表格过高，
+#     改为非等宽列（0.17 / 0.15 / 0.62），按表头"阅读时的处理方式"锚点仅对该表格生效
+_ex_idx = tex.find("阅读时的处理方式")
+if _ex_idx != -1:
+    _lt_start = tex.rfind("\\begin{longtable}", 0, _ex_idx)
+    _old_cols = (
+        ">{\\raggedright\\arraybackslash}p{\\dimexpr(\\columnwidth - 4\\tabcolsep)/3 \\relax}\n"
+        "  >{\\raggedright\\arraybackslash}p{\\dimexpr(\\columnwidth - 4\\tabcolsep)/3 \\relax}\n"
+        "  >{\\raggedright\\arraybackslash}p{\\dimexpr(\\columnwidth - 4\\tabcolsep)/3 \\relax}"
+    )
+    _new_cols = (
+        ">{\\raggedright\\arraybackslash}p{\\dimexpr0.34\\columnwidth-2\\tabcolsep\\relax}\n"
+        "  >{\\raggedright\\arraybackslash}p{\\dimexpr0.13\\columnwidth-2\\tabcolsep\\relax}\n"
+        "  >{\\raggedright\\arraybackslash}p{\\dimexpr0.47\\columnwidth-2\\tabcolsep\\relax}"
+    )
+    _seg = tex[_lt_start:_ex_idx]
+    if _old_cols in _seg:
+        tex = tex[:_lt_start] + _seg.replace(_old_cols, _new_cols) + tex[_ex_idx:]
+    else:
+        print("WARN: 6.4 例子表格列定义未匹配")
+else:
+    print("WARN: 6.4 未找到'阅读时的处理方式'")
+
 # 7. 三书"核心观点"独立小标题：从 itemize 中移出
 def _lift_core_point(m):
     return "\n\\end{itemize}\n\n\\subsubsection*{核心观点}\n\n\\begin{itemize}\n\\item\n"
